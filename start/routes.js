@@ -21,4 +21,7 @@ Route.get('/', () => ({ greeting: 'Hello world in JSON' }))
 Route.group(() => {
   Route.resource('/posts', 'PostController')
   Route.resource('/users', 'UserController')
+
+  Route.post('/assets', 'AssetController.upload')
+  Route.get('/assets/:fileName', 'AssetController.show')
 }).prefix('api/v1')
