@@ -1,6 +1,7 @@
 'use strict'
 
 const Helpers = use('Helpers')
+const Env = use('Env')
 
 class AssetController {
   show ({ request, response }) {
@@ -24,7 +25,11 @@ class AssetController {
     return {
       status: 200,
       error: undefined,
-      data: { path: `http://localhost:3333/api/v1/assets/${fileName}` }
+      data: {
+        path: `http://${Env.get('HOST')}:${Env.get(
+          'PORT'
+        )}/api/v1/assets/${fileName}`
+      }
     }
   }
 }
